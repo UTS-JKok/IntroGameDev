@@ -8,23 +8,18 @@ public class PrintAndHide : MonoBehaviour
     public Renderer rend;
 
     private int count;
-    private int randNum;
+    private int randomNumber;
 
-    // Start is called before the first frame update
     void Start()
     {
         count = 0;
-
-        randNum = Random.Range(200, 251);
+        randomNumber = Random.Range(200, 251);              // Between 200 and 250 inclusive
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Not sure if the instructions mean this should start printing 0 or 1
-        // Increment every frame i guess also includes first frame so setting to start at 1
-        count++;
-        Debug.Log($"{gameObject.name}: {count}");
+        // Frame counter
+        Debug.Log($"{gameObject.name}: {++count}");
 
         // Hide
         switch (gameObject.tag)
@@ -36,7 +31,7 @@ public class PrintAndHide : MonoBehaviour
                 break;
 
             case "Blue":
-                if (count == randNum) {
+                if (count == randomNumber) {
                     rend.enabled = false;
                 }
                 break;
